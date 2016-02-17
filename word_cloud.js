@@ -37,21 +37,24 @@
             span.innerText = words[i].name;
             span.id = words[i].name;
 
-            if(Math.random()*10 > 5){
-                span.style.transform = 'rotate(' + 0 + 'deg)';
-                span.style.transformOrigin = 'left bottom';
-            }
+
 
             this.element.append(span);
 
-            this.randomPositions(span);
+            if(Math.random()*10 > 5){
+                span.style.transform = 'rotate(' + this.randomNumberBetween(0, 360) + 'deg)';
+                span.style.height = span.offsetWidth + 'px';
+                //span.style.transformOrigin = 'left bottom';
+            }
+
+            //this.randomPositions(span);
 
             words[i].positions = span.getBoundingClientRect();
 
 
             if(this.checkIsItOutOfScreen(words[i])){
                 this.element.find(span).remove();
-                this.randomPositions(span);
+                //this.randomPositions(span);
             }
             else{
                 i++;
@@ -96,11 +99,11 @@ var words = [
     {name: 'black', size: Math.floor(Math.random() * 42) + 12},
     {name: 'pink', size: Math.floor(Math.random() * 42) + 12},
     {name: 'gold', size: Math.floor(Math.random() * 42) + 12},
-    //{name: 'cyan', size: Math.floor(Math.random() * 42) + 12},
-    //{name: 'magenta', size: Math.floor(Math.random() * 42) + 12},
-    //{name: 'brown', size: Math.floor(Math.random() * 42) + 12},
-    //{name: 'orange', size: Math.floor(Math.random() * 42) + 12},
-];
+    {name: 'cyan', size: Math.floor(Math.random() * 42) + 12},
+    {name: 'magenta', size: Math.floor(Math.random() * 42) + 12},
+    {name: 'brown', size: Math.floor(Math.random() * 42) + 12},
+    {name: 'orange', size: Math.floor(Math.random() * 42) + 12},
+]
 
 var options = {
 
